@@ -59,6 +59,7 @@
     <Compile Include="Converters\VersionToStringConverter.cs" />
     <Compile Include="Data\AndroidAppVersion.cs" />
     <Compile Include="Data\AppVersion.cs" />
+    <Compile Include="Data\BindingProxy.cs" />
     <Compile Include="Data\CocoaAppVersion.cs" />
     <Compile Include="Data\FailedProject.cs" />
     <Compile Include="Data\iOSAppVersion.cs" />
@@ -98,7 +99,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="index.html" />
+    <Content Include="index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Resources\Changes.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>

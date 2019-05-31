@@ -1,4 +1,7 @@
-﻿Changes in 2.0.2
+﻿Changes in 2.1.1
+- show File Version column in main window
+
+Changes in 2.0.2
 
 - Improved detection of unloaded projects, to reduce false positives
 - Fixed hanging issue when nodes are missing from the AssemblyInfo.cs file within a project

@@ -12,6 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using System.Xml;
 using System.Xml.Linq;
@@ -260,12 +261,12 @@ namespace DSoft.VersionChanger.ViewModel
                 {
                     mSepeateVersions = value;
                     SettingsControl.SetBooleanValue(value,"SeperateVersions");
-                    PropertyDidChange("SeperateVersions");
+                    PropertyDidChange("SeperateVersions");                    
                     LoadAssFileVersion();
                 }
             }
         }
-        
+
         public bool ForceSemVer
         {
             get { return forceSemVer; }

@@ -146,7 +146,7 @@ namespace DSoft.VersionChanger.Data
         {
             get
             {
-                if (mFileVersion == null) m_AssemblyVersion = new Version("0, 0, 0, 0");
+                if (mFileVersion == null) mFileVersion = new Version("0, 0, 0, 0");
 
                 return mFileVersion;
             }
@@ -156,6 +156,14 @@ namespace DSoft.VersionChanger.Data
                 mFileVersion = value;
 
                 PropertyDidChange("VeFileVersionrsion");
+            }
+        }
+
+        public string FileVersionValue
+        {
+            get
+            {
+                return (FileVersion.Revision <= 0) ? $"{FileVersion.Major}.{FileVersion.Minor}.{FileVersion.Build}" : FileVersion.ToString();
             }
         }
 

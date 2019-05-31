@@ -30,7 +30,7 @@
                 <ColumnDefinition Width="218*"/>
                 <ColumnDefinition Width="301*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid ItemsSource="{Binding Items}" 
+            <DataGrid ItemsSource="{Binding Items}" Name="dataItems"
                   CanUserAddRows="False" 
                   CanUserDeleteRows="False" 
                   CanUserResizeColumns="False" 
@@ -38,6 +38,9 @@
                   CanUserResizeRows="False" 
                   CanUserSortColumns="False" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled"
                   SelectionMode="Single" Margin="0,2,0.4,4.8" Grid.ColumnSpan="2">
+                <DataGrid.Resources>
+                    <data:BindingProxy x:Key="proxy" Data="{Binding}"/>
+                </DataGrid.Resources>
                 <DataGrid.Columns>
                     <DataGridCheckBoxColumn Header="" Width="30" Binding="{Binding Update, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}" IsReadOnly="True" />
@@ -48,7 +51,13 @@
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
-
+                    <DataGridTextColumn Header="File Version" Width="100" Binding="{Binding FileVersionValue}" IsReadOnly="True" Visibility="{Binding Data.SeperateVersions, Converter={StaticResource booleanToVisibilityConverter},  Source={StaticResource proxy}}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
